@@ -1,0 +1,29 @@
+
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "proto";
+option java_outer_classname = "EmployeeProto";
+
+
+package proto;
+
+service EmployeeDetails {
+    rpc RegisterEmployee(Employee) returns (EmployeeRes) {}
+
+    rpc GetEmployeeById(EmployeeIdReq) returns (Employee) {}
+}
+
+message Employee{
+    string employeeId = 1;
+    string name = 2;
+    string department = 3;
+}
+
+message EmployeeRes {
+    bool created = 1;
+}
+
+message EmployeeIdReq {
+    string employeeId = 1;
+}
